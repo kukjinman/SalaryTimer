@@ -1,11 +1,10 @@
-package com.example.salarytimer
+package com.example.salarytimer.ui
 
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
-import com.example.salarytimer.MainActivity
 import com.example.salarytimer.R
 
 class SplashActivity : AppCompatActivity() {
