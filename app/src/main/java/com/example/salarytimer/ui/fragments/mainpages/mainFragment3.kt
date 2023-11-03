@@ -1,4 +1,4 @@
-package com.example.salarytimer.ui.mainpages
+package com.example.salarytimer.ui.fragments.mainpages
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

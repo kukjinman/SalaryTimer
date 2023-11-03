@@ -1,4 +1,4 @@
-package com.example.salarytimer.ui.setting
+package com.example.salarytimer.ui.fragments.setting
 
 import android.os.Bundle
 import android.view.LayoutInflater
