@@ -31,9 +31,9 @@
 
 
         <TextView
-            android:layout_width="80dp"
+            android:layout_width="110dp"
             android:layout_height="61dp"
-            android:text="오늘"
+            android:text="오늘은"
             android:textSize="32dp"
             app:layout_constraintBottom_toTopOf="@+id/main2_linear"
             app:layout_constraintEnd_toEndOf="parent"
@@ -65,7 +65,7 @@
                 android:textSize="32dp" />
 
             <TextView
-                android:id="@+id/main_text2"
+                android:id="@+id/main2_text2"
                 android:layout_width="50dp"
                 android:layout_height="60dp"
                 android:text=" 원"
@@ -76,6 +76,7 @@
         </androidx.appcompat.widget.LinearLayoutCompat>
 
         <TextView
+            android:id="@id/main2_text3"
             android:layout_width="307dp"
             android:layout_height="75dp"
             android:text="을 벌었어요."
