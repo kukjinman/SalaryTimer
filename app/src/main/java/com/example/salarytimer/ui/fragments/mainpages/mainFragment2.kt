@@ -10,11 +10,13 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.salarytimer.R
+import com.example.salarytimer.databinding.FragmentMain2Binding
 import com.example.salarytimer.ui.viewmodel.mainpages.MainF2ViewModel
 import java.util.Calendar
 
 class mainFragment2 : Fragment() {
     val TAG = "mainFragment2"
+    private lateinit var binding: FragmentMain2Binding
     val handler = Handler(Looper.getMainLooper())
 
     //ViewModelProvider의 현재 초기화 방식은 androidx.lifecycle:lifecycle-viewmodel과 다른 방식임
@@ -103,20 +105,13 @@ class mainFragment2 : Fragment() {
     }
 
     fun calTodaySalary(sal: Int): Int {
-        var result : Int = 0
+        var result: Int = 0
         val now = Calendar.getInstance()
         val weekdaysInMonth = now.getActualMaximum(Calendar.DAY_OF_MONTH)
         Log.d(TAG, "[calTodaySalary] weekdaysInMonth : $weekdaysInMonth")
         Log.d(TAG, "[calTodaySalary] sal : $sal")
 
-        val dailySalary = sal / weekdaysInMonth
-
-//                    val dailySalary = sal / weekdaysInMonth
-//                    val worktimesecond = now.get(Calendar.SECOND)
-//                    val todaySalary = dailySalary * worktimesecond
-//                    result = todaySalary
-
-        return dailySalary
+        return sal / weekdaysInMonth
     }
 
 }

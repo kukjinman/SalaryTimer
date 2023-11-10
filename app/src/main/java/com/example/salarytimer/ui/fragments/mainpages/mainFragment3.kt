@@ -6,6 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.salarytimer.R
+import com.example.salarytimer.databinding.FragmentMain2Binding
+import com.example.salarytimer.databinding.FragmentMain3Binding
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -18,6 +20,8 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  */
 class mainFragment3 : Fragment() {
+    val TAG = "mainFragment3"
+    private lateinit var binding: FragmentMain3Binding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

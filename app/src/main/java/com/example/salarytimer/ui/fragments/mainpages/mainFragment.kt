@@ -45,11 +45,10 @@ class mainFragment : Fragment() {
                 s?.let {
                     // s가 null이 아닌 경우에만 실행
                     try {
-                        val enteredValue = it.toString().toInt()
-                        mainFViewModel.salary.value = enteredValue
+                        mainFViewModel.salary.value = it.toString().toInt()
                     } catch (e: NumberFormatException) {
-                        // 사용자가 숫자가 아닌 값을 입력한 경우 예외 처리
-                        // 원하는 방식으로 처리하거나 에러 메시지를 표시할 수 있습니다.
+
+                        //toast 메세지 넣기
                     }
                 }
 

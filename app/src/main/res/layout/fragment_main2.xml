@@ -1,101 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/constraintLayout1"
-
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#FFFFFF"
-    tools:context=".ui.fragments.mainpages.mainFragment">
-    <ImageView
-        android:layout_width="34dp"
-        android:layout_height="202dp"
-        android:layout_marginEnd="4dp"
-        android:src="@drawable/left_arrow"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/constraintLayout2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout2"
-        android:layout_width="320dp"
-        android:layout_height="300dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.5">
+        android:id="@+id/constraintLayout1"
 
-
-        <TextView
-            android:layout_width="110dp"
-            android:layout_height="61dp"
-            android:text="오늘은"
-            android:textSize="32dp"
-            app:layout_constraintBottom_toTopOf="@+id/main2_linear"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FFFFFF"
+        tools:context=".ui.fragments.mainpages.mainFragment">
+        <ImageView
+            android:layout_width="34dp"
+            android:layout_height="202dp"
+            android:layout_marginEnd="4dp"
+            android:src="@drawable/left_arrow"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/constraintLayout2"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.813" />
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.appcompat.widget.LinearLayoutCompat
-            android:id="@+id/main2_linear"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="104dp"
-
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <TextView
-                android:id="@+id/todaysalary"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:contentDescription="Enter your salary"
-                android:inputType="number"
-
-                android:maxLength="10"
-                android:text="3000000000"
-                android:textSize="32dp" />
-
-            <TextView
-                android:id="@+id/main2_text2"
-                android:layout_width="50dp"
-                android:layout_height="60dp"
-                android:text=" 원"
-                android:textSize="32dp"
-                />
-
-
-        </androidx.appcompat.widget.LinearLayoutCompat>
-
-        <TextView
-            android:id="@id/main2_text3"
-            android:layout_width="307dp"
-            android:layout_height="75dp"
-            android:text="을 벌었어요."
-            android:textSize="32dp"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout2"
+            android:layout_width="320dp"
+            android:layout_height="300dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/main2_linear"
-            app:layout_constraintVertical_bias="0.325" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.5">
+
+
+            <TextView
+                android:layout_width="110dp"
+                android:layout_height="61dp"
+                android:text="오늘은"
+                android:textSize="32dp"
+                app:layout_constraintBottom_toTopOf="@+id/main2_linear"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.813" />
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/main2_linear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="104dp"
+
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/todaysalary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="Enter your salary"
+                    android:inputType="number"
+
+                    android:maxLength="10"
+                    android:text="3000000000"
+                    android:textSize="32dp" />
+
+                <TextView
+                    android:id="@+id/main2_text2"
+                    android:layout_width="50dp"
+                    android:layout_height="60dp"
+                    android:text=" 원"
+                    android:textSize="32dp"
+                    />
+
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <TextView
+                android:id="@id/main2_text3"
+                android:layout_width="307dp"
+                android:layout_height="75dp"
+                android:text="을 벌었어요."
+                android:textSize="32dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/main2_linear"
+                app:layout_constraintVertical_bias="0.325" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ImageView
+            android:layout_width="34dp"
+            android:layout_height="202dp"
+            android:layout_marginStart="4dp"
+            android:src="@drawable/right_arrow"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/constraintLayout2"
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <ImageView
-        android:layout_width="34dp"
-        android:layout_height="202dp"
-        android:layout_marginStart="4dp"
-        android:src="@drawable/right_arrow"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/constraintLayout2"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+</layout>
