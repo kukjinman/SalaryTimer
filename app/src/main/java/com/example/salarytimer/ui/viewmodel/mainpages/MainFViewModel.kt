@@ -3,11 +3,10 @@ package com.example.salarytimer.ui.viewmodel.mainpages
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class mainF2ViewModel  : ViewModel() {
+class MainFViewModel : ViewModel() {
 
-    var todaysalary = MutableLiveData<Number>()
-
-
-
-
+    var salary = MutableLiveData<Number>()
+    init {
+        salary.value = 3000000
+    }
 }

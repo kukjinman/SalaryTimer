@@ -5,6 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout1"
 
@@ -57,7 +58,7 @@
                     android:contentDescription="Enter your salary"
                     android:ems="10"
                     android:inputType="number"
-                    android:text="300000000"
+                    android:text="3000000"
                     android:textSize="22dp" />
 
                 <TextView

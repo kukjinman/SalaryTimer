@@ -10,18 +10,21 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.salarytimer.R
-import com.example.salarytimer.ui.viewmodel.mainpages.mainF2ViewModel
+import com.example.salarytimer.ui.viewmodel.mainpages.MainF2ViewModel
 import java.util.Calendar
 
 class mainFragment2 : Fragment() {
     val TAG = "mainFragment2"
     val handler = Handler(Looper.getMainLooper())
 
+    //ViewModelProvider의 현재 초기화 방식은 androidx.lifecycle:lifecycle-viewmodel과 다른 방식임
+    //ViewModelProvider의 owner인자로 requireActivity()을 사용해줘야 다른 곳에서도 해당 viewmodel instance사용시
+    //싱글톤으로 사용이 가능하다 owner를 다르게해주면 새로운 instance로 생성됩
     private val mainFViewModel by lazy {
-        ViewModelProvider(this).get(com.example.salarytimer.ui.viewmodel.mainpages.mainFViewModel::class.java)
+        ViewModelProvider(requireActivity())[com.example.salarytimer.ui.viewmodel.mainpages.MainFViewModel::class.java]
     }
     private val mainF2ViewModel by lazy {
-        ViewModelProvider(this).get(mainF2ViewModel::class.java)
+        ViewModelProvider(requireActivity())[MainF2ViewModel::class.java]
 
     }
 
@@ -36,8 +39,14 @@ class mainFragment2 : Fragment() {
     ): View? {
 
         InitSalaryCounter()
-        mainFViewModel.salary.observe(viewLifecycleOwner) {
-            mainF2ViewModel.todaysalary.value = calTodaySalary(mainF2ViewModel.todaysalary.value!!.toInt())
+
+        Log.d(TAG, "[onCreateView] mainFViewModel.salary.value : " + mainFViewModel.salary.value)
+        mainF2ViewModel.todaysalary.value = calTodaySalary(mainFViewModel.salary.value?.toInt() ?: 0)
+        Log.d(TAG, "[onCreateView] todaysalary : " + mainF2ViewModel.todaysalary.value)
+
+        mainFViewModel.salary.observe(requireActivity()) {
+            mainF2ViewModel.todaysalary.value = calTodaySalary(mainFViewModel.salary.value!!.toInt())
+            Log.d(TAG, "[onCreateView] updated todaysalary : " + mainF2ViewModel.todaysalary.value)
 
         }
         // Inflate the layout for this fragment
@@ -74,18 +83,20 @@ class mainFragment2 : Fragment() {
 
             if (now.get(Calendar.DAY_OF_WEEK) in Calendar.MONDAY..Calendar.FRIDAY) {
                 // 주중
-
+                Log.d(TAG, "[InitSalaryCounter] weekdays")
 
             }
             else
             {
                 // 주말
+                Log.d(TAG, "[InitSalaryCounter] weekend")
+
 
             }
             handler.postDelayed(this, 1000) // 1초마다 업데이트
         }
     }
-    fun InitSalaryCounter() {
+    private fun InitSalaryCounter() {
 
 
         handler.post(runnable)
@@ -93,14 +104,19 @@ class mainFragment2 : Fragment() {
 
     fun calTodaySalary(sal: Int): Int {
         var result : Int = 0
+        val now = Calendar.getInstance()
+        val weekdaysInMonth = now.getActualMaximum(Calendar.DAY_OF_MONTH)
+        Log.d(TAG, "[calTodaySalary] weekdaysInMonth : $weekdaysInMonth")
+        Log.d(TAG, "[calTodaySalary] sal : $sal")
 
-        //                    val weekdaysInMonth = now.getActualMaximum(Calendar.DAY_OF_MONTH)
+        val dailySalary = sal / weekdaysInMonth
+
 //                    val dailySalary = sal / weekdaysInMonth
 //                    val worktimesecond = now.get(Calendar.SECOND)
 //                    val todaySalary = dailySalary * worktimesecond
 //                    result = todaySalary
 
-        return result
+        return dailySalary
     }
 
 }
