@@ -82,18 +82,19 @@ class mainFragment : Fragment() {
             Log.d(TAG, "memoStartTimeHrUpBtn clicked ")
 
             if (mainFViewModel.startHour.value!!.toInt() >= 23) {
-                mainFViewModel.startHour.value = 0
+                mainFViewModel.startHour.value = "00"
             } else {
-                mainFViewModel.startHour.value = mainFViewModel.startHour.value!!.plus(1)
+                mainFViewModel.startHour.value = String.format("%02d", mainFViewModel.startHour.value!!.toInt() + 1)
+
             }
         }
 
         binding.memoStartTimeHrDownBtn.setOnClickListener {
             Log.d(TAG, "memoStartTimeHrDownBtn clicked ")
             if (mainFViewModel.startHour.value!!.toInt() <= 0) {
-                mainFViewModel.startHour.value = 23
+                mainFViewModel.startHour.value = "23"
             } else {
-                mainFViewModel.startHour.value = mainFViewModel.startHour.value!!.minus(1)
+                mainFViewModel.startHour.value = String.format("%02d", mainFViewModel.startHour.value!!.toInt() - 1)
             }
 
 
@@ -103,9 +104,9 @@ class mainFragment : Fragment() {
             Log.d(TAG, "memoStartTimeMinUpBtn clicked ")
 
             if (mainFViewModel.startMinute.value!!.toInt() >= 59) {
-                mainFViewModel.startMinute.value = 0
+                mainFViewModel.startMinute.value = "00"
             } else {
-                mainFViewModel.startMinute.value = mainFViewModel.startMinute.value!!.plus(1)
+                mainFViewModel.startMinute.value = String.format("%02d", mainFViewModel.startMinute.value!!.toInt() + 1)
             }
 
 
@@ -115,9 +116,9 @@ class mainFragment : Fragment() {
             Log.d(TAG, "memoStartTimeMinDownBtn clicked ")
 
             if (mainFViewModel.startMinute.value!!.toInt() <= 0) {
-                mainFViewModel.startMinute.value = 59
+                mainFViewModel.startMinute.value = "59"
             } else {
-                mainFViewModel.startMinute.value = mainFViewModel.startMinute.value!!.minus(1)
+                mainFViewModel.startMinute.value = String.format("%02d", mainFViewModel.startMinute.value!!.toInt() - 1)
             }
 
 
@@ -126,9 +127,9 @@ class mainFragment : Fragment() {
             Log.d(TAG, "memoEndTimeHrUpBtn clicked ")
 
             if (mainFViewModel.endHour.value!!.toInt() >= 23) {
-                mainFViewModel.endHour.value = 0
+                mainFViewModel.endHour.value = "00"
             } else {
-                mainFViewModel.endHour.value = mainFViewModel.endHour.value!!.plus(1)
+                mainFViewModel.endHour.value = String.format("%02d",mainFViewModel.endHour.value!!.toInt() + 1)
             }
 
         }
@@ -137,9 +138,9 @@ class mainFragment : Fragment() {
             Log.d(TAG, "memoEndTimeHrDownBtn clicked ")
 
             if (mainFViewModel.endHour.value!!.toInt() <= 0) {
-                mainFViewModel.endHour.value = 23
+                mainFViewModel.endHour.value = "23"
             } else {
-                mainFViewModel.endHour.value = mainFViewModel.endHour.value!!.minus(1)
+                mainFViewModel.endHour.value = String.format("%02d", mainFViewModel.endHour.value!!.toInt() - 1)
             }
 
 
@@ -149,9 +150,9 @@ class mainFragment : Fragment() {
 
 
             if (mainFViewModel.endMinute.value!!.toInt() >= 59) {
-                mainFViewModel.endMinute.value = 0
+                mainFViewModel.endMinute.value = "00"
             } else {
-                mainFViewModel.endMinute.value = mainFViewModel.endMinute.value!!.plus(1)
+                mainFViewModel.endMinute.value = String.format("%02d",mainFViewModel.endMinute.value!!.toInt() + 1)
             }
 
 
@@ -161,9 +162,9 @@ class mainFragment : Fragment() {
             Log.d(TAG, "memoEndTimeMinDownBtn clicked ")
 
             if (mainFViewModel.endMinute.value!!.toInt() <= 0) {
-                mainFViewModel.endMinute.value = 59
+                mainFViewModel.endMinute.value = "59"
             } else {
-                mainFViewModel.endMinute.value = mainFViewModel.endMinute.value!!.minus(1)
+                mainFViewModel.endMinute.value = String.format("%02d", mainFViewModel.endMinute.value!!.toInt() - 1)
             }
 
 

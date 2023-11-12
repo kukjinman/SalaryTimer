@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.salarytimer.R
@@ -40,27 +41,54 @@ class mainFragment2 : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
+        binding = DataBindingUtil.inflate<FragmentMain2Binding>(
+            inflater,
+            R.layout.fragment_main2,
+            container,
+            false
+        )
+
+        binding.viewModel2 = mainF2ViewModel
+        binding.lifecycleOwner = requireActivity()
+
         InitSalaryCounter()
 
         Log.d(TAG, "[onCreateView] mainFViewModel.salary.value : " + mainFViewModel.salary.value)
-        mainF2ViewModel.todaysalary.value = calTodaySalary(mainFViewModel.salary.value?.toInt() ?: 0)
+        mainF2ViewModel.todaysalary.value =
+            calTodaySalary(mainFViewModel.salary.value?.toInt() ?: 0)
         Log.d(TAG, "[onCreateView] todaysalary : " + mainF2ViewModel.todaysalary.value)
 
         mainFViewModel.salary.observe(requireActivity()) {
-            mainF2ViewModel.todaysalary.value = calTodaySalary(mainFViewModel.salary.value!!.toInt())
+            mainF2ViewModel.todaysalary.value =
+                calTodaySalary(mainFViewModel.salary.value!!.toInt())
             Log.d(TAG, "[onCreateView] updated todaysalary : " + mainF2ViewModel.todaysalary.value)
 
         }
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_main2, container, false)
+        return binding.root
     }
 
     override fun onResume() {
         super.onResume()
         Log.d(TAG, "[onResume]")
+        val now = Calendar.getInstance()
 
-        handler.post(runnable)
+        if (now.get(Calendar.DAY_OF_WEEK) in Calendar.MONDAY..Calendar.FRIDAY) {
+            // 주중
+            Log.d(TAG, "[InitSalaryCounter] weekdays")
 
+            handler.post(runnable)
+
+
+        } else {
+            // 주말
+            Log.d(TAG, "[InitSalaryCounter] weekend")
+
+
+            handler.removeCallbacks(runnable)
+
+
+        }
     }
 
     override fun onPause() {
@@ -74,10 +102,39 @@ class mainFragment2 : Fragment() {
 
     val runnable = object : Runnable {
         override fun run() {
-            displayTodaySalary()
+
+
+            val now = Calendar.getInstance()
+
+            if (mainFViewModel.endHour.value!!.toInt() <= now.get(Calendar.HOUR_OF_DAY)) {
+                if (mainFViewModel.endMinute.value!!.toInt() <= now.get(Calendar.MINUTE)) {
+                    Log.d(TAG, "[InitSalaryCounter] work hour done")
+                    mainF2ViewModel.todayCurSalary.value =
+                        mainF2ViewModel.todaysalary.value!!.toInt()
+
+                } else {
+                    displayTodaySalary()
+                }
+            } else if (mainFViewModel.startHour.value!!.toInt() > now.get(Calendar.HOUR_OF_DAY)) {
+
+                if (mainFViewModel.startMinute.value!!.toInt() > now.get(Calendar.MINUTE)) {
+                    Log.d(TAG, "[InitSalaryCounter] work hour not begins")
+                    mainF2ViewModel.todayCurSalary.value = 0
+
+                } else {
+                    displayTodaySalary()
+                }
+
+
+            } else {
+                displayTodaySalary()
+
+            }
+
             handler.postDelayed(this, 1000) // 1초마다 업데이트
         }
     }
+
     private fun InitSalaryCounter() {
 
         val now = Calendar.getInstance()
@@ -93,24 +150,32 @@ class mainFragment2 : Fragment() {
             // 주중
             Log.d(TAG, "[InitSalaryCounter] weekdays")
             handler.post(runnable)
-
-        }
-        else
-        {
+        } else {
             // 주말
             Log.d(TAG, "[InitSalaryCounter] weekend")
-            handler.post(runnable)
-
-
+            handler.removeCallbacks(runnable)
         }
-
 
     }
 
     fun calTodaySalary(sal: Int): Int {
         var result: Int = 0
         val now = Calendar.getInstance()
-        val weekdaysInMonth = now.getActualMaximum(Calendar.DAY_OF_MONTH)
+        val totalDaysInMonth = now.getActualMaximum(Calendar.DAY_OF_MONTH)
+
+        var weekdaysInMonth = 0
+
+        for (day in 1..totalDaysInMonth) {
+            now.set(Calendar.DAY_OF_MONTH, day)
+            val dayOfWeek = now.get(Calendar.DAY_OF_WEEK)
+
+            // 토요일과 일요일을 제외하고 주중의 날짜 수를 증가시킴
+            if (dayOfWeek != Calendar.SATURDAY && dayOfWeek != Calendar.SUNDAY) {
+                weekdaysInMonth++
+            }
+        }
+
+
         Log.d(TAG, "[calTodaySalary] weekdaysInMonth : $weekdaysInMonth")
         Log.d(TAG, "[calTodaySalary] sal : $sal")
 
@@ -120,15 +185,29 @@ class mainFragment2 : Fragment() {
     var monthSalarySum = 0;
     var todaySalarySum = 0;
 
-    fun displayTodaySalary(){
+    fun displayTodaySalary() {
         Log.d(TAG, "[displayTodaySalary] is called")
         val now = Calendar.getInstance()
         Log.d(TAG, "[displayTodaySalary] date : ${now.get(Calendar.DATE)}")
-        Log.d(TAG, "[displayTodaySalary] sec : ${now.get(Calendar.SECOND)}")
 
         var todaySecond = 0;
 
+        var curHour = now.get(Calendar.HOUR_OF_DAY)
+        var curMin = now.get(Calendar.MINUTE)
+        var curSec = now.get(Calendar.SECOND)
 
+        todaySecond =
+            (curHour.toInt() - mainFViewModel.startHour.value!!.toInt()) * 3600 + (curMin.toInt() - mainFViewModel.startMinute.value!!.toInt()) * 60 + curSec.toInt()
+
+        Log.d(TAG, "[displayTodaySalary] todaySecond : $todaySecond")
+
+        var todayWorkSecond =
+            (mainFViewModel.endHour.value!!.toInt() - mainFViewModel.startHour.value!!.toInt()) * 3600 + (mainFViewModel.endMinute.value!!.toInt() - mainFViewModel.startMinute.value!!.toInt()) * 60
+
+        Log.d(TAG, "[displayTodaySalary] todayWorkSecond : $todayWorkSecond")
+
+        mainF2ViewModel.todayCurSalary.value =
+            mainF2ViewModel.todaysalary.value!!.toInt() / todayWorkSecond.toInt() * todaySecond.toInt()
 
 
     }

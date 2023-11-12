@@ -4,6 +4,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+        <variable
+            name="viewModel2"
+            type="com.example.salarytimer.ui.viewmodel.mainpages.MainF2ViewModel" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout1"
 
@@ -62,9 +68,8 @@
                     android:layout_height="wrap_content"
                     android:contentDescription="Enter your salary"
                     android:inputType="number"
-
                     android:maxLength="10"
-                    android:text="3000000000"
+                    android:text="@{String.valueOf(viewModel2.todayCurSalary)}"
                     android:textSize="32dp" />
 
                 <TextView
