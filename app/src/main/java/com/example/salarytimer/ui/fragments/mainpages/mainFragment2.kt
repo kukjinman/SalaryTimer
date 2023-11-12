@@ -74,34 +74,37 @@ class mainFragment2 : Fragment() {
 
     val runnable = object : Runnable {
         override fun run() {
-            val now = Calendar.getInstance()
-            Log.d(TAG, "[InitSalaryCounter]")
-
-            Log.d(TAG, "[InitSalaryCounter]" + now.get(Calendar.DAY_OF_WEEK))
-
-            // Calendar.SUNDAY = 1
-            // Calendar.MONDAY = 2
-            // Calendar.SATURDAY = 7
-
-            if (now.get(Calendar.DAY_OF_WEEK) in Calendar.MONDAY..Calendar.FRIDAY) {
-                // 주중
-                Log.d(TAG, "[InitSalaryCounter] weekdays")
-
-            }
-            else
-            {
-                // 주말
-                Log.d(TAG, "[InitSalaryCounter] weekend")
-
-
-            }
+            displayTodaySalary()
             handler.postDelayed(this, 1000) // 1초마다 업데이트
         }
     }
     private fun InitSalaryCounter() {
 
+        val now = Calendar.getInstance()
+        Log.d(TAG, "[InitSalaryCounter]")
 
-        handler.post(runnable)
+        Log.d(TAG, "[InitSalaryCounter]" + now.get(Calendar.DAY_OF_WEEK))
+
+        // Calendar.SUNDAY = 1
+        // Calendar.MONDAY = 2
+        // Calendar.SATURDAY = 7
+
+        if (now.get(Calendar.DAY_OF_WEEK) in Calendar.MONDAY..Calendar.FRIDAY) {
+            // 주중
+            Log.d(TAG, "[InitSalaryCounter] weekdays")
+            handler.post(runnable)
+
+        }
+        else
+        {
+            // 주말
+            Log.d(TAG, "[InitSalaryCounter] weekend")
+            handler.post(runnable)
+
+
+        }
+
+
     }
 
     fun calTodaySalary(sal: Int): Int {
@@ -112,6 +115,22 @@ class mainFragment2 : Fragment() {
         Log.d(TAG, "[calTodaySalary] sal : $sal")
 
         return sal / weekdaysInMonth
+    }
+
+    var monthSalarySum = 0;
+    var todaySalarySum = 0;
+
+    fun displayTodaySalary(){
+        Log.d(TAG, "[displayTodaySalary] is called")
+        val now = Calendar.getInstance()
+        Log.d(TAG, "[displayTodaySalary] date : ${now.get(Calendar.DATE)}")
+        Log.d(TAG, "[displayTodaySalary] sec : ${now.get(Calendar.SECOND)}")
+
+        var todaySecond = 0;
+
+
+
+
     }
 
 }
