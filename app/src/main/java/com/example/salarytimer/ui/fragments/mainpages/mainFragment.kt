@@ -38,7 +38,8 @@ class mainFragment : Fragment() {
             container,
             false
         )
-        //binding에서의 viewModel을 정해줘야 xml에서 해당 viewModel binding을 사용할 수 있음
+        //binding을하는 xml 안에서 variable로 viewModel을 선언해줬음
+        //해당 variable에 대한 객체를 넘겨 줘야 비로소 binding이 완성 됨
         binding.viewModel = mainFViewModel
         binding.lifecycleOwner = requireActivity()
 
@@ -71,60 +72,104 @@ class mainFragment : Fragment() {
         buttonEventListner()
 
 
-
         // Inflate the layout for this fragment
         return binding.root
     }
 
-    fun buttonEventListner()
-    {
+    fun buttonEventListner() {
 
         binding.memoStartTimeHrUpBtn.setOnClickListener {
             Log.d(TAG, "memoStartTimeHrUpBtn clicked ")
-            mainFViewModel.startHour.value = mainFViewModel.startHour.value!!.plus(1)
+
+            if (mainFViewModel.startHour.value!!.toInt() >= 23) {
+                mainFViewModel.startHour.value = 0
+            } else {
+                mainFViewModel.startHour.value = mainFViewModel.startHour.value!!.plus(1)
+            }
         }
 
-        binding.memoStartTimeHrDownBtn.setOnClickListener{
+        binding.memoStartTimeHrDownBtn.setOnClickListener {
             Log.d(TAG, "memoStartTimeHrDownBtn clicked ")
-            mainFViewModel.startHour.value!!.minus(1)
+            if (mainFViewModel.startHour.value!!.toInt() <= 0) {
+                mainFViewModel.startHour.value = 23
+            } else {
+                mainFViewModel.startHour.value = mainFViewModel.startHour.value!!.minus(1)
+            }
+
 
         }
 
         binding.memoStartTimeMinUpBtn.setOnClickListener {
             Log.d(TAG, "memoStartTimeMinUpBtn clicked ")
-            mainFViewModel.startMinute.value!!.plus(1)
+
+            if (mainFViewModel.startMinute.value!!.toInt() >= 59) {
+                mainFViewModel.startMinute.value = 0
+            } else {
+                mainFViewModel.startMinute.value = mainFViewModel.startMinute.value!!.plus(1)
+            }
+
 
         }
 
-        binding.memoStartTimeMinDownBtn.setOnClickListener{
+        binding.memoStartTimeMinDownBtn.setOnClickListener {
             Log.d(TAG, "memoStartTimeMinDownBtn clicked ")
-            mainFViewModel.startMinute.value!!.minus(1)
+
+            if (mainFViewModel.startMinute.value!!.toInt() <= 0) {
+                mainFViewModel.startMinute.value = 59
+            } else {
+                mainFViewModel.startMinute.value = mainFViewModel.startMinute.value!!.minus(1)
+            }
+
 
         }
         binding.memoEndTimeHrUpBtn.setOnClickListener {
             Log.d(TAG, "memoEndTimeHrUpBtn clicked ")
-            mainFViewModel.endHour.value!!.plus(1)
+
+            if (mainFViewModel.endHour.value!!.toInt() >= 23) {
+                mainFViewModel.endHour.value = 0
+            } else {
+                mainFViewModel.endHour.value = mainFViewModel.endHour.value!!.plus(1)
+            }
 
         }
 
-        binding.memoEndTimeHrDownBtn.setOnClickListener{
+        binding.memoEndTimeHrDownBtn.setOnClickListener {
             Log.d(TAG, "memoEndTimeHrDownBtn clicked ")
-            mainFViewModel.endHour.value!!.minus(1)
+
+            if (mainFViewModel.endHour.value!!.toInt() <= 0) {
+                mainFViewModel.endHour.value = 23
+            } else {
+                mainFViewModel.endHour.value = mainFViewModel.endHour.value!!.minus(1)
+            }
+
 
         }
         binding.memoEndTimeMinUpBtn.setOnClickListener {
             Log.d(TAG, "memoEndTimeMinUpBtn clicked ")
-            mainFViewModel.endMinute.value!!.plus(1)
+
+
+            if (mainFViewModel.endMinute.value!!.toInt() >= 59) {
+                mainFViewModel.endMinute.value = 0
+            } else {
+                mainFViewModel.endMinute.value = mainFViewModel.endMinute.value!!.plus(1)
+            }
+
 
         }
 
-        binding.memoEndTimeMinDownBtn.setOnClickListener{
+        binding.memoEndTimeMinDownBtn.setOnClickListener {
             Log.d(TAG, "memoEndTimeMinDownBtn clicked ")
-            mainFViewModel.endMinute.value!!.minus(1)
+
+            if (mainFViewModel.endMinute.value!!.toInt() <= 0) {
+                mainFViewModel.endMinute.value = 59
+            } else {
+                mainFViewModel.endMinute.value = mainFViewModel.endMinute.value!!.minus(1)
+            }
+
 
         }
 
-        mainFViewModel.startHour.observe(requireActivity()){
+        mainFViewModel.startHour.observe(requireActivity()) {
             Log.d(TAG, "startHour updated : " + mainFViewModel.startHour.value!!.toInt())
 
 
