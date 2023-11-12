@@ -159,7 +159,6 @@ class mainFragment2 : Fragment() {
     }
 
     fun calTodaySalary(sal: Int): Int {
-        var result: Int = 0
         val now = Calendar.getInstance()
         val totalDaysInMonth = now.getActualMaximum(Calendar.DAY_OF_MONTH)
 
@@ -181,9 +180,6 @@ class mainFragment2 : Fragment() {
 
         return sal / weekdaysInMonth
     }
-
-    var monthSalarySum = 0;
-    var todaySalarySum = 0;
 
     fun displayTodaySalary() {
         Log.d(TAG, "[displayTodaySalary] is called")

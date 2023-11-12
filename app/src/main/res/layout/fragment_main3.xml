@@ -5,6 +5,12 @@
     xmlns:tools="http://schemas.android.com/tools">
 
 
+    <data>
+        <variable
+            name="viewModel3"
+            type="com.example.salarytimer.ui.viewmodel.mainpages.MainF3ViewModel" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout1"
 
@@ -37,7 +43,7 @@
             <TextView
                 android:layout_width="180dp"
                 android:layout_height="61dp"
-                android:text="출근 후"
+                android:text="이번 달"
                 android:textSize="32dp"
                 app:layout_constraintBottom_toTopOf="@+id/main2_linear"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -57,15 +63,22 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
+
                 <TextView
-                    android:id="@+id/worktime"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:contentDescription="Enter your salary"
-                    android:inputType="text"
-                    android:text="00시간 00분 00초"
+                    android:inputType="number"
+                    android:maxLength="10"
+                    android:text="@{String.valueOf(viewModel3.monthSalarySum)}"
                     android:textSize="32dp" />
 
+                <TextView
+                    android:layout_width="50dp"
+                    android:layout_height="60dp"
+                    android:text=" 원"
+                    android:textSize="32dp"
+                    />
 
 
 
