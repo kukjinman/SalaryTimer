@@ -64,7 +64,8 @@ class mainFragment2 : Fragment() {
             Log.d(TAG, "[onCreateView] updated todaysalary : " + mainF2ViewModel.todaysalary.value)
 
         }
-        // Inflate the layout for this fragment
+
+        //viewModel과 lifecycleOwner가 다 설정된 binding이 return되어야 binding이 정상동작함.
         return binding.root
     }
 
