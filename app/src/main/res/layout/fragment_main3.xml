@@ -87,7 +87,7 @@
             <TextView
                 android:layout_width="307dp"
                 android:layout_height="75dp"
-                android:text="의 시간이 지났습니다."
+                android:text="의 급여를 벌었습니다."
                 android:textSize="32dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
