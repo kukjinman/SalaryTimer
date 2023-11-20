@@ -119,7 +119,7 @@ class mainFragment2 : Fragment() {
             } else if (mainFViewModel.startHour.value!!.toInt() > now.get(Calendar.HOUR_OF_DAY)) {
 
                 Log.d(TAG, "[InitSalaryCounter] work hour not begins")
-                displayTodaySalary()
+                mainF2ViewModel.todayCurSalary.value = 0
 
             } else {
                 displayTodaySalary()
