@@ -118,14 +118,8 @@ class mainFragment2 : Fragment() {
                 }
             } else if (mainFViewModel.startHour.value!!.toInt() > now.get(Calendar.HOUR_OF_DAY)) {
 
-                if (mainFViewModel.startMinute.value!!.toInt() > now.get(Calendar.MINUTE)) {
-                    Log.d(TAG, "[InitSalaryCounter] work hour not begins")
-                    mainF2ViewModel.todayCurSalary.value = 0
-
-                } else {
-                    displayTodaySalary()
-                }
-
+                Log.d(TAG, "[InitSalaryCounter] work hour not begins")
+                displayTodaySalary()
 
             } else {
                 displayTodaySalary()
