@@ -13,12 +13,22 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.salarytimer.R
 import com.example.salarytimer.databinding.FragmentMain2Binding
 import com.example.salarytimer.ui.viewmodel.mainpages.MainF2ViewModel
+import com.google.android.gms.ads.AdError
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.FullScreenContentCallback
+import com.google.android.gms.ads.LoadAdError
+import com.google.android.gms.ads.interstitial.InterstitialAd
+import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
 import java.util.Calendar
 
 class mainFragment2 : Fragment() {
     val TAG = "mainFragment2"
     private lateinit var binding: FragmentMain2Binding
     val handler = Handler(Looper.getMainLooper())
+
+    private var mInterstitialAd: InterstitialAd? = null
+
+
 
     //ViewModelProvider의 현재 초기화 방식은 androidx.lifecycle:lifecycle-viewmodel과 다른 방식임
     //ViewModelProvider의 owner인자로 requireActivity()을 사용해줘야 다른 곳에서도 해당 viewmodel instance사용시
@@ -33,7 +43,7 @@ class mainFragment2 : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        setupInterstitialAd()
     }
 
     override fun onCreateView(
@@ -90,6 +100,8 @@ class mainFragment2 : Fragment() {
 
 
         }
+
+        displayAdmob()
     }
 
     override fun onPause() {
@@ -201,6 +213,60 @@ class mainFragment2 : Fragment() {
             mainF2ViewModel.todaysalary.value!!.toInt() / todayWorkSecond.toInt() * todaySecond.toInt()
 
 
+    }
+
+    fun displayAdmob(){
+
+        if (mInterstitialAd != null) {
+            mInterstitialAd?.show(requireActivity())
+            mInterstitialAd?.fullScreenContentCallback = object : FullScreenContentCallback() {
+                override fun onAdClicked() {
+                    Log.d("DEBUG: ", "Ad was clicked.")
+                }
+
+                override fun onAdDismissedFullScreenContent() {
+                    // Called when ad is dismissed.
+                    Log.d("DEBUG: ", "Ad dismissed fullscreen content.")
+                    mInterstitialAd = null
+                    setupInterstitialAd()
+                }
+
+                override fun onAdFailedToShowFullScreenContent(adError: AdError) {
+                    Log.e("DEBUG: ", "Ad failed to show fullscreen content.")
+                    mInterstitialAd = null
+                }
+
+                override fun onAdImpression() {
+                    Log.d("DEBUG: ", "Ad recorded an impression.")
+                }
+
+                override fun onAdShowedFullScreenContent() {
+                    Log.d("DEBUG: ", "Ad showed fullscreen content.")
+                }
+            }
+        } else {
+        }
+
+    }
+
+
+    private fun setupInterstitialAd() {
+        val adRequest = AdRequest.Builder().build()
+
+        InterstitialAd.load(requireContext(),
+            "ca-app-pub-8423416265571528/7752328515",
+            adRequest,
+            object : InterstitialAdLoadCallback() {
+                override fun onAdFailedToLoad(adError: LoadAdError) {
+                    Log.d("DEBUG: ", adError?.message.toString())
+                    mInterstitialAd = null
+                }
+
+                override fun onAdLoaded(interstitialAd: InterstitialAd) {
+                    Log.d("DEBUG: ", "Ad was loaded.")
+                    mInterstitialAd = interstitialAd
+                }
+            })
     }
 
 }

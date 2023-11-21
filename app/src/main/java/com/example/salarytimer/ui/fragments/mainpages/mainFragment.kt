@@ -14,9 +14,11 @@ import androidx.lifecycle.ViewModelProvider
 
 import com.example.salarytimer.R
 import com.example.salarytimer.databinding.FragmentMainBinding
+import com.google.android.gms.ads.interstitial.InterstitialAd
 
 class mainFragment : Fragment() {
     val TAG = "mainFragment1"
+
     private lateinit var binding: FragmentMainBinding
     private val mainFViewModel by lazy {
         ViewModelProvider(requireActivity())[com.example.salarytimer.ui.viewmodel.mainpages.MainFViewModel::class.java]
