@@ -28,6 +28,7 @@ class mainFragment2 : Fragment() {
 
     private var mInterstitialAd: InterstitialAd? = null
 
+    var addisplaycntdown = 0
 
 
     //ViewModelProvider의 현재 초기화 방식은 androidx.lifecycle:lifecycle-viewmodel과 다른 방식임
@@ -43,6 +44,7 @@ class mainFragment2 : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Log.d(TAG, "[onCreate]")
         setupInterstitialAd()
     }
 
@@ -100,8 +102,13 @@ class mainFragment2 : Fragment() {
 
 
         }
+        Log.d(TAG, "[onResume] addisplaycntdown : " + addisplaycntdown)
 
-        displayAdmob()
+        if(addisplaycntdown>=2){
+            displayAdmob()
+            addisplaycntdown = 0
+        }
+        addisplaycntdown++
     }
 
     override fun onPause() {
@@ -254,7 +261,7 @@ class mainFragment2 : Fragment() {
         val adRequest = AdRequest.Builder().build()
 
         InterstitialAd.load(requireContext(),
-            "ca-app-pub-8423416265571528/7752328515",
+            "ca-app-pub-5898839142087215/4615616011",
             adRequest,
             object : InterstitialAdLoadCallback() {
                 override fun onAdFailedToLoad(adError: LoadAdError) {
