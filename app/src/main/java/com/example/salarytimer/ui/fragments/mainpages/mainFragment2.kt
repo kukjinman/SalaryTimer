@@ -104,7 +104,7 @@ class mainFragment2 : Fragment() {
         }
         Log.d(TAG, "[onResume] addisplaycntdown : " + addisplaycntdown)
 
-        if(addisplaycntdown>=2){
+        if(addisplaycntdown>=3){
             displayAdmob()
             addisplaycntdown = 0
         }
