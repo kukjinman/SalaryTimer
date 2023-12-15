@@ -1,10 +1,10 @@
-package com.example.salarytimer.ui
+package com.kukjinman.salarytimer.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import com.example.salarytimer.R
-import com.example.salarytimer.ui.viewpager.ViewPagerAdapter
+import com.kukjinman.salarytimer.ui.viewpager.ViewPagerAdapter
 import com.example.salarytimer.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {

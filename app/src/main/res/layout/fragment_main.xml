@@ -10,7 +10,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.salarytimer.ui.viewmodel.mainpages.MainFViewModel" />
+            type="com.kukjinman.salarytimer.ui.viewmodel.mainpages.MainFViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -19,7 +19,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#FFFFFF"
-        tools:context=".ui.fragments.mainpages.mainFragment">
+        tools:context="com.kukjinman.salarytimer.ui.fragments.mainpages.mainFragment">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout2"

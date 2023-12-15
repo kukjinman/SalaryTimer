@@ -1,4 +1,4 @@
-package com.example.salarytimer
+package com.kukjinman.salarytimer
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

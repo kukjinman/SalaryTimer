@@ -1,4 +1,4 @@
-package com.example.salarytimer
+package com.kukjinman.salarytimer
 
 import org.junit.Test
 

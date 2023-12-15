@@ -1,4 +1,4 @@
-package com.example.salarytimer.ui.fragments.mainpages
+package com.kukjinman.salarytimer.ui.fragments.mainpages
 
 import android.os.Bundle
 import android.util.Log
@@ -12,8 +12,8 @@ import com.example.salarytimer.R
 import com.example.salarytimer.databinding.FragmentMain2Binding
 import com.example.salarytimer.databinding.FragmentMain3Binding
 import com.example.salarytimer.databinding.FragmentMainBinding
-import com.example.salarytimer.ui.viewmodel.mainpages.MainF2ViewModel
-import com.example.salarytimer.ui.viewmodel.mainpages.MainF3ViewModel
+import com.kukjinman.salarytimer.ui.viewmodel.mainpages.MainF2ViewModel
+import com.kukjinman.salarytimer.ui.viewmodel.mainpages.MainF3ViewModel
 import java.util.Calendar
 
 // TODO: Rename parameter arguments, choose names that match

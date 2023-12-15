@@ -1,4 +1,4 @@
-package com.example.salarytimer.ui
+package com.kukjinman.salarytimer.ui
 
 import android.content.Intent
 import android.os.Bundle

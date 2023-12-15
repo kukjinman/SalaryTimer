@@ -1,4 +1,4 @@
-package com.example.salarytimer.ui.viewmodel.mainpages
+package com.kukjinman.salarytimer.ui.viewmodel.mainpages
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

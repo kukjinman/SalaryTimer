@@ -1,4 +1,4 @@
-package com.example.salarytimer.ui.fragments.mainpages
+package com.kukjinman.salarytimer.ui.fragments.mainpages
 
 import android.os.Bundle
 import android.os.Handler
@@ -12,13 +12,14 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.salarytimer.R
 import com.example.salarytimer.databinding.FragmentMain2Binding
-import com.example.salarytimer.ui.viewmodel.mainpages.MainF2ViewModel
+import com.kukjinman.salarytimer.ui.viewmodel.mainpages.MainF2ViewModel
 import com.google.android.gms.ads.AdError
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.FullScreenContentCallback
 import com.google.android.gms.ads.LoadAdError
 import com.google.android.gms.ads.interstitial.InterstitialAd
 import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
+import com.kukjinman.salarytimer.ui.viewmodel.mainpages.MainFViewModel
 import java.util.Calendar
 
 class mainFragment2 : Fragment() {
@@ -35,7 +36,7 @@ class mainFragment2 : Fragment() {
     //ViewModelProvider의 owner인자로 requireActivity()을 사용해줘야 다른 곳에서도 해당 viewmodel instance사용시
     //싱글톤으로 사용이 가능하다 owner를 다르게해주면 새로운 instance로 생성됩
     private val mainFViewModel by lazy {
-        ViewModelProvider(requireActivity())[com.example.salarytimer.ui.viewmodel.mainpages.MainFViewModel::class.java]
+        ViewModelProvider(requireActivity())[MainFViewModel::class.java]
     }
     private val mainF2ViewModel by lazy {
         ViewModelProvider(requireActivity())[MainF2ViewModel::class.java]

@@ -7,7 +7,7 @@
     <data>
         <variable
             name="viewModel2"
-            type="com.example.salarytimer.ui.viewmodel.mainpages.MainF2ViewModel" />
+            type="com.kukjinman.salarytimer.ui.viewmodel.mainpages.MainF2ViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -16,7 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#FFFFFF"
-        tools:context=".ui.fragments.mainpages.mainFragment">
+        tools:context="com.kukjinman.salarytimer.ui.fragments.mainpages.mainFragment">
         <ImageView
             android:layout_width="34dp"
             android:layout_height="202dp"
