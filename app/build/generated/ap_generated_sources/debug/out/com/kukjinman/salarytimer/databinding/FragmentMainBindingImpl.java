@@ -1,13 +1,11 @@
 package com.kukjinman.salarytimer.databinding;
-import com.example.salarytimer.R;
+import com.kukjinman.salarytimer.R;
 import com.kukjinman.salarytimer.BR;
-import com.kukjinman.salarytimer.ui.viewmodel.mainpages.MainFViewModel;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import android.view.View;
 @SuppressWarnings("unchecked")
-public class FragmentMainBindingImpl extends FragmentMainBinding {
+public class FragmentMainBindingImpl extends FragmentMainBinding  {
 
     @Nullable
     private static final androidx.databinding.ViewDataBinding.IncludedLayouts sIncludes;
@@ -116,7 +114,7 @@ public class FragmentMainBindingImpl extends FragmentMainBinding {
     public boolean setVariable(int variableId, @Nullable Object variable)  {
         boolean variableSet = true;
         if (BR.viewModel == variableId) {
-            setViewModel((MainFViewModel) variable);
+            setViewModel((com.kukjinman.salarytimer.ui.viewmodel.mainpages.MainFViewModel) variable);
         }
         else {
             variableSet = false;
@@ -124,7 +122,7 @@ public class FragmentMainBindingImpl extends FragmentMainBinding {
             return variableSet;
     }
 
-    public void setViewModel(@Nullable MainFViewModel ViewModel) {
+    public void setViewModel(@Nullable com.kukjinman.salarytimer.ui.viewmodel.mainpages.MainFViewModel ViewModel) {
         this.mViewModel = ViewModel;
         synchronized(this) {
             mDirtyFlags |= 0x10L;
@@ -199,7 +197,7 @@ public class FragmentMainBindingImpl extends FragmentMainBinding {
         java.lang.String viewModelStartHourGetValue = null;
         androidx.lifecycle.MutableLiveData<java.lang.String> viewModelStartMinute = null;
         java.lang.String viewModelEndHourGetValue = null;
-        MainFViewModel viewModel = mViewModel;
+        com.kukjinman.salarytimer.ui.viewmodel.mainpages.MainFViewModel viewModel = mViewModel;
 
         if ((dirtyFlags & 0x3fL) != 0) {
 

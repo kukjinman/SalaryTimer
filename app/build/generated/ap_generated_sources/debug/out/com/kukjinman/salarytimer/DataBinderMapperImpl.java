@@ -10,7 +10,6 @@ import com.kukjinman.salarytimer.databinding.ActivityMainBindingImpl;
 import com.kukjinman.salarytimer.databinding.FragmentMain2BindingImpl;
 import com.kukjinman.salarytimer.databinding.FragmentMain3BindingImpl;
 import com.kukjinman.salarytimer.databinding.FragmentMainBindingImpl;
-
 import java.lang.IllegalArgumentException;
 import java.lang.Integer;
 import java.lang.Object;
@@ -33,10 +32,10 @@ public class DataBinderMapperImpl extends DataBinderMapper {
   private static final SparseIntArray INTERNAL_LAYOUT_ID_LOOKUP = new SparseIntArray(4);
 
   static {
-    INTERNAL_LAYOUT_ID_LOOKUP.put(com.example.salarytimer.R.layout.activity_main, LAYOUT_ACTIVITYMAIN);
-    INTERNAL_LAYOUT_ID_LOOKUP.put(com.example.salarytimer.R.layout.fragment_main, LAYOUT_FRAGMENTMAIN);
-    INTERNAL_LAYOUT_ID_LOOKUP.put(com.example.salarytimer.R.layout.fragment_main2, LAYOUT_FRAGMENTMAIN2);
-    INTERNAL_LAYOUT_ID_LOOKUP.put(com.example.salarytimer.R.layout.fragment_main3, LAYOUT_FRAGMENTMAIN3);
+    INTERNAL_LAYOUT_ID_LOOKUP.put(com.kukjinman.salarytimer.R.layout.activity_main, LAYOUT_ACTIVITYMAIN);
+    INTERNAL_LAYOUT_ID_LOOKUP.put(com.kukjinman.salarytimer.R.layout.fragment_main, LAYOUT_FRAGMENTMAIN);
+    INTERNAL_LAYOUT_ID_LOOKUP.put(com.kukjinman.salarytimer.R.layout.fragment_main2, LAYOUT_FRAGMENTMAIN2);
+    INTERNAL_LAYOUT_ID_LOOKUP.put(com.kukjinman.salarytimer.R.layout.fragment_main3, LAYOUT_FRAGMENTMAIN3);
   }
 
   @Override
@@ -131,10 +130,10 @@ public class DataBinderMapperImpl extends DataBinderMapper {
     static final HashMap<String, Integer> sKeys = new HashMap<String, Integer>(4);
 
     static {
-      sKeys.put("layout/activity_main_0", com.example.salarytimer.R.layout.activity_main);
-      sKeys.put("layout/fragment_main_0", com.example.salarytimer.R.layout.fragment_main);
-      sKeys.put("layout/fragment_main2_0", com.example.salarytimer.R.layout.fragment_main2);
-      sKeys.put("layout/fragment_main3_0", com.example.salarytimer.R.layout.fragment_main3);
+      sKeys.put("layout/activity_main_0", com.kukjinman.salarytimer.R.layout.activity_main);
+      sKeys.put("layout/fragment_main_0", com.kukjinman.salarytimer.R.layout.fragment_main);
+      sKeys.put("layout/fragment_main2_0", com.kukjinman.salarytimer.R.layout.fragment_main2);
+      sKeys.put("layout/fragment_main3_0", com.kukjinman.salarytimer.R.layout.fragment_main3);
     }
   }
 }

@@ -3,9 +3,9 @@ package com.kukjinman.salarytimer.ui
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
-import com.example.salarytimer.R
+import com.kukjinman.salarytimer.R
 import com.kukjinman.salarytimer.ui.viewpager.ViewPagerAdapter
-import com.example.salarytimer.databinding.ActivityMainBinding
+import com.kukjinman.salarytimer.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 

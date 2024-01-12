@@ -8,10 +8,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
-import com.example.salarytimer.R
-import com.example.salarytimer.databinding.FragmentMain2Binding
-import com.example.salarytimer.databinding.FragmentMain3Binding
-import com.example.salarytimer.databinding.FragmentMainBinding
+import com.kukjinman.salarytimer.R
+import com.kukjinman.salarytimer.databinding.FragmentMain2Binding
+import com.kukjinman.salarytimer.databinding.FragmentMain3Binding
+import com.kukjinman.salarytimer.databinding.FragmentMainBinding
 import com.kukjinman.salarytimer.ui.viewmodel.mainpages.MainF2ViewModel
 import com.kukjinman.salarytimer.ui.viewmodel.mainpages.MainF3ViewModel
 import java.util.Calendar

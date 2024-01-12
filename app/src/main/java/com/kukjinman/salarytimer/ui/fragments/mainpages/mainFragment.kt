@@ -12,8 +12,8 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 
-import com.example.salarytimer.R
-import com.example.salarytimer.databinding.FragmentMainBinding
+import com.kukjinman.salarytimer.R
+import com.kukjinman.salarytimer.databinding.FragmentMainBinding
 import com.google.android.gms.ads.interstitial.InterstitialAd
 import com.kukjinman.salarytimer.ui.viewmodel.mainpages.MainFViewModel
 

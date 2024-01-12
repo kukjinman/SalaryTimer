@@ -1,13 +1,11 @@
 package com.kukjinman.salarytimer.databinding;
-import com.example.salarytimer.R;
+import com.kukjinman.salarytimer.R;
 import com.kukjinman.salarytimer.BR;
-import com.kukjinman.salarytimer.ui.viewmodel.mainpages.MainF2ViewModel;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import android.view.View;
 @SuppressWarnings("unchecked")
-public class FragmentMain2BindingImpl extends FragmentMain2Binding {
+public class FragmentMain2BindingImpl extends FragmentMain2Binding  {
 
     @Nullable
     private static final androidx.databinding.ViewDataBinding.IncludedLayouts sIncludes;
@@ -70,7 +68,7 @@ public class FragmentMain2BindingImpl extends FragmentMain2Binding {
     public boolean setVariable(int variableId, @Nullable Object variable)  {
         boolean variableSet = true;
         if (BR.viewModel2 == variableId) {
-            setViewModel2((MainF2ViewModel) variable);
+            setViewModel2((com.kukjinman.salarytimer.ui.viewmodel.mainpages.MainF2ViewModel) variable);
         }
         else {
             variableSet = false;
@@ -78,7 +76,7 @@ public class FragmentMain2BindingImpl extends FragmentMain2Binding {
             return variableSet;
     }
 
-    public void setViewModel2(@Nullable MainF2ViewModel ViewModel2) {
+    public void setViewModel2(@Nullable com.kukjinman.salarytimer.ui.viewmodel.mainpages.MainF2ViewModel ViewModel2) {
         this.mViewModel2 = ViewModel2;
         synchronized(this) {
             mDirtyFlags |= 0x2L;
@@ -113,7 +111,7 @@ public class FragmentMain2BindingImpl extends FragmentMain2Binding {
             mDirtyFlags = 0;
         }
         java.lang.Number viewModel2TodayCurSalaryGetValue = null;
-        MainF2ViewModel viewModel2 = mViewModel2;
+        com.kukjinman.salarytimer.ui.viewmodel.mainpages.MainF2ViewModel viewModel2 = mViewModel2;
         androidx.lifecycle.MutableLiveData<java.lang.Number> viewModel2TodayCurSalary = null;
         java.lang.String stringValueOfViewModel2TodayCurSalary = null;
 

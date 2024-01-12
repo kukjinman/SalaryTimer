@@ -1,11 +1,11 @@
 package com.kukjinman.salarytimer.databinding;
-import com.example.salarytimer.R;
-
+import com.kukjinman.salarytimer.R;
+import com.kukjinman.salarytimer.BR;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import android.view.View;
 @SuppressWarnings("unchecked")
-public class ActivityMainBindingImpl extends ActivityMainBinding {
+public class ActivityMainBindingImpl extends ActivityMainBinding  {
 
     @Nullable
     private static final androidx.databinding.ViewDataBinding.IncludedLayouts sIncludes;

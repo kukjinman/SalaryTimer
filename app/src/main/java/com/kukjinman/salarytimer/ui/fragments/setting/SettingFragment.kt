@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.salarytimer.R
+import com.kukjinman.salarytimer.R
 
 class settingFragment : Fragment() {
 
